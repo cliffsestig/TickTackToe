@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -8,10 +8,59 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.cliffsestig.tictactoe.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.example.cliffsestig.tictactoe.MainActivity"
+    android:background="@drawable/images">
 
     <TextView
+        android:text="TicTacToe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:id="@+id/txt_title"
+        android:textColor="#959263"
+        android:textStyle="normal|bold|italic"
+        android:textSize="50dp"
+        android:textAlignment="center"
+        android:gravity="right"
+        android:shadowColor="#EFFF08"  android:shadowDx="5.0" android:shadowDy="0.0" android:shadowRadius="30"
+        android:elevation="1dp" />
+
+    <Button
+        android:id="@+id/btn_play"
+        android:text="Play"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:layout_marginTop="30dp" />
+    <Button
+        android:id="@+id/btn_settings"
+        android:text="Settings"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:layout_marginTop="20dp" />
+    <Button
+        android:id="@+id/btn_score"
+        android:text="Highscore"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:layout_marginTop="20dp" />
+    <Button
+        android:id="@+id/btn_about"
+        android:text="About"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:layout_marginTop="20dp" />
+
+
+</LinearLayout>
