@@ -7,6 +7,7 @@ package com.example.cliffsestig.tictactoe;
 public class Player {
     private String playerName;
     private char playerId;
+    private boolean active;
 
     Score score = new Score();
 
@@ -18,6 +19,10 @@ public class Player {
         this.playerId = playerId;
     }
 
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public String getPlayerName() {
         return playerName;
     }
@@ -25,4 +30,6 @@ public class Player {
     public char getPlayerId() {
         return playerId;
     }
+
+    public boolean getActive() { return active; }
 }

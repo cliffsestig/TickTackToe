@@ -1,5 +1,6 @@
 package com.example.cliffsestig.tictactoe;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,8 @@ public class playActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-
+        Intent i = getIntent();
+        char player1 = getIntent("player1");
         ArrayList imgView = new ArrayList();
         ImageView img  = (ImageView) findViewById(R.id.imageView);
         ImageView img1 = (ImageView) findViewById(R.id.imageView2);
@@ -33,10 +35,12 @@ public class playActivity extends AppCompatActivity {
         for (int i = 0; i < imgView.size(); i++) {
             ImageView image = (ImageView) imgView.get(i);
             final int j = i;
+            final ImageView imgV = image;
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d("Onclick", "View" + j);
+                    imgV.setImageResource(R.drawable.circle);
                 }
 
             });

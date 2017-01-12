@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import static android.R.attr.button;
+import static com.example.cliffsestig.tictactoe.R.styleable.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
         btn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GameController gController = new GameController();
+
                 Intent myIntent = new Intent(MainActivity.this, playActivity.class);
+                myIntent.putExtra("player1", gController.player1.getPlayerId());
+                myIntent.putExtra("player2", gController.player2.getPlayerId());
                 startActivity(myIntent);
 
             }
