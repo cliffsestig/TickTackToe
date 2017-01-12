@@ -18,7 +18,7 @@ public class playActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         Intent i = getIntent();
-        char player1 = getIntent("player1");
+       // char player1 = getIntent("player1");
         ArrayList imgView = new ArrayList();
         ImageView img  = (ImageView) findViewById(R.id.imageView);
         ImageView img1 = (ImageView) findViewById(R.id.imageView2);
@@ -32,9 +32,9 @@ public class playActivity extends AppCompatActivity {
 
         imgView.add(img); imgView.add(img1); imgView.add(img2); imgView.add(img3); imgView.add(img4); imgView.add(img5); imgView.add(img6); imgView.add(img7); imgView.add(img8);
 
-        for (int i = 0; i < imgView.size(); i++) {
-            ImageView image = (ImageView) imgView.get(i);
-            final int j = i;
+        for (int c = 0; c < imgView.size(); c++) {
+            ImageView image = (ImageView) imgView.get(c);
+            final int j = c;
             final ImageView imgV = image;
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
