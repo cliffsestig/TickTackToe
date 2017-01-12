@@ -6,7 +6,7 @@ package com.example.cliffsestig.tictactoe;
 
 public class GameBoard {
     //Determines if there is a winner or not checks each diagonal then loops through each row/column
-    public boolean isWinner() {
+    /*public boolean isWinner() {
         // Check Diagonals
         if (theBoard[0][0] == theBoard[1][1] && theBoard[0][0] == theBoard[2][2] && theBoard[0][0] != "")
 
@@ -31,5 +31,5 @@ public class GameBoard {
         }
 
         return false;
-    }
+    }*/
 }

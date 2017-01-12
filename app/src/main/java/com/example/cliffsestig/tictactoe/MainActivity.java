@@ -1,11 +1,16 @@
 package com.example.cliffsestig.tictactoe;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.TextView;
+
+import static android.R.attr.button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,12 +19,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RunAnimation();
+
+        Button btn_about = (Button) findViewById(R.id.btn_about);
+        btn_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, aboutActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        Button btn_settings = (Button) findViewById(R.id.btn_settings);
+        btn_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, settingsActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
     private void RunAnimation()
     {
-
         TextView tv = (TextView) findViewById(R.id.txt_title);
-
         TranslateAnimation cloud_moving = new TranslateAnimation(
                 Animation.ABSOLUTE, 200,
                 Animation.ABSOLUTE, 10,
