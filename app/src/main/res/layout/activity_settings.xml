@@ -18,33 +18,41 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_level"
         android:textStyle="normal|bold"
-        android:textSize="24sp" />
 
+        android:textSize="24sp" />
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
     <RadioButton
-        android:text="RadioButton"
+        android:text="20 sec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radioButton"
         tools:text="20 sec"
+        android:buttonTint="@android:color/black"
         android:textSize="24sp"
         android:checked="true" />
 
     <RadioButton
-        android:text="RadioButton"
+        android:text="10 sec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radioButton2"
         tools:text="10 sec"
+        android:buttonTint="@android:color/black"
         android:textSize="24sp"/>
 
     <RadioButton
-        android:text="RadioButton"
+        android:text="5 sec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:buttonTint="@android:color/black"
         android:id="@+id/radioButton3"
         tools:text="5 sec"
         android:textSize="24sp"/>
-
+</RadioGroup>
     <Button
         android:id="@+id/btn_save"
         android:text="Save"
