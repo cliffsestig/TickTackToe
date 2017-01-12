@@ -20,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RunAnimation();
 
+        Button btn_play = (Button) findViewById(R.id.btn_play);
+        btn_play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, playActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+
         Button btn_about = (Button) findViewById(R.id.btn_about);
         btn_about.setOnClickListener(new View.OnClickListener() {
             @Override
