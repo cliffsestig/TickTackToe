@@ -38,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        Button btn_score = (Button) findViewById(R.id.btn_score);
+        btn_score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, highscoreActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
     private void RunAnimation()
     {

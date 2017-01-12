@@ -13,13 +13,12 @@
     tools:context="com.example.cliffsestig.tictactoe.aboutActivity">
 
     <TextView
-        android:text="TextView"
+        android:text="Cliff Sestig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/about_cliff"
         android:layout_weight="0.00"
         android:textStyle="normal|bold"
-        tools:text="Cliff Sestig"
         android:textSize="36sp" />
 
     <TextView
