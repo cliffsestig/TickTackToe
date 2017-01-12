@@ -17,8 +17,9 @@ public class playActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-        Intent i = getIntent();
-       // char player1 = getIntent("player1");
+
+        final GameController gControl = new GameController();
+
         ArrayList imgView = new ArrayList();
         ImageView img  = (ImageView) findViewById(R.id.imageView);
         ImageView img1 = (ImageView) findViewById(R.id.imageView2);
@@ -36,11 +37,18 @@ public class playActivity extends AppCompatActivity {
             ImageView image = (ImageView) imgView.get(c);
             final int j = c;
             final ImageView imgV = image;
+
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d("Onclick", "View" + j);
-                    imgV.setImageResource(R.drawable.circle);
+                    String turn = gControl.checkTurn();
+                    if (turn == "player1") {
+                        imgV.setImageResource(R.drawable.circle);
+                    } else {
+                        imgV.setImageResource(R.drawable.x);
+                    }
+                    imgV.setOnClickListener(null);
                 }
 
             });

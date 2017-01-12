@@ -18,7 +18,20 @@ public class GameController {
         player2.setActive(false);
     }
 
+    public String checkTurn(){
+        String turn = "";
 
+        if (player1.getActive() == true){
+            turn = "player1";
+            player1.setActive(false);
+            player2.setActive(true);
+        } else {
+            turn = "player2";
+            player1.setActive(true);
+            player2.setActive(false);
+        }
+        return turn;
+    }
 
 
 
