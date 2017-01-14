@@ -14,12 +14,11 @@ public class Level  {
     private String timer;
     private int level = 1;
     private Context con;
-
+    private  SharedPreferences preferences;
     public Level(Context cont) {
         con = cont;
+         preferences = PreferenceManager.getDefaultSharedPreferences(con);
     }
-
-
 
     public void setLevel(int level) {
         this.level = level;
@@ -29,13 +28,12 @@ public class Level  {
     }
 
     public void setTimer(String timer) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(con);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("time",timer);
         editor.apply();
     }
     public String getTimer() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(con);
+
         String name = preferences.getString("time", "");
         if(!name.equalsIgnoreCase(""))
         {
