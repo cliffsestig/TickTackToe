@@ -8,6 +8,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,9 @@ public class playActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play);
 
         final GameController gControl = new GameController();
+        TextView txt_time = (TextView) findViewById(R.id.txt_time);
+        Level lv = new Level(getApplicationContext());
+        txt_time.setText(lv.getTimer());
 
         ArrayList imgView = new ArrayList();
         ImageView img  = (ImageView) findViewById(R.id.imageView);

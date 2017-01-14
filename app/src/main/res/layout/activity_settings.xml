@@ -13,7 +13,7 @@
     tools:context="com.example.cliffsestig.tictactoe.settingsActivity">
 
     <TextView
-        android:text="time of round"
+        android:text="Time of round"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_level"
@@ -23,7 +23,7 @@
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
+        android:id="@+id/radiogroup"
         android:orientation="vertical">
     <RadioButton
         android:text="20 sec"
