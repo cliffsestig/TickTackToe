@@ -2,6 +2,7 @@ package com.example.cliffsestig.tictactoe;
 
 import android.content.Intent;
 import android.media.Image;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -9,20 +10,27 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class playActivity extends AppCompatActivity {
+import static android.R.id.input;
 
+public class playActivity extends AppCompatActivity {
+public TextView txt_time;
+    private GameController gControl;
+    private CountDownTimer count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        final GameController gControl = new GameController();
-        TextView txt_time = (TextView) findViewById(R.id.txt_time);
+         gControl = new GameController();
+        txt_time = (TextView) findViewById(R.id.txt_time);
         Level lv = new Level(getApplicationContext());
-        txt_time.setText(lv.getTimer());
+        timer();
+
+
 
         ArrayList imgView = new ArrayList();
         ImageView img  = (ImageView) findViewById(R.id.imageView);
@@ -45,6 +53,7 @@ public class playActivity extends AppCompatActivity {
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Log.d("Onclick", "View" + j);
                     String turn = gControl.checkTurn();
                     if (turn == "player1") {
@@ -52,10 +61,36 @@ public class playActivity extends AppCompatActivity {
                     } else {
                         imgV.setImageResource(R.drawable.x);
                     }
+
+                    timer();
                     imgV.setOnClickListener(null);
+
                 }
 
             });
         }
+    }
+    public void timer()
+    {
+        if (count != null) {
+            count.cancel();
+        }
+        Level lv = new Level(getApplicationContext());
+        int time = Integer.parseInt(lv.getTimer().replace(" sec", ""));
+        time = time * 1000;
+
+       count = new CountDownTimer(time, 1000) {
+            public void onTick(final long millisUntilFinished) {
+                if ( millisUntilFinished >= 1) {
+                    txt_time.setText(millisUntilFinished / 1000 + "");
+                }
+                else{txt_time.setText("0");}
+            }
+            public void onFinish() {
+                txt_time.setText("0");
+                Toast.makeText(playActivity.this,gControl.checkTurn() + " you lose", Toast.LENGTH_SHORT).show();
+            }
+        };
+        count.start();
     }
 }
