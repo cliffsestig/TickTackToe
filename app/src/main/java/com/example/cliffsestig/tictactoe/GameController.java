@@ -6,8 +6,8 @@ package com.example.cliffsestig.tictactoe;
 
 public class GameController {
 
-    Player player1;
-    Player player2;
+    private Player player1;
+    private Player player2;
 
     public GameController(){
         player1 = new Player();
@@ -32,7 +32,4 @@ public class GameController {
         }
         return turn;
     }
-
-
-
 }

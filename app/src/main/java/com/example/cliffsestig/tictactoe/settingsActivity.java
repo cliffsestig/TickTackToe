@@ -41,11 +41,8 @@ public class settingsActivity extends AppCompatActivity {
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-
                                 int selectedId = rb_group.getCheckedRadioButtonId();
                                 radioButton = (RadioButton) findViewById(selectedId);
-
-
                                 timer.setTimer((String) radioButton.getText());
                             }
                         })
