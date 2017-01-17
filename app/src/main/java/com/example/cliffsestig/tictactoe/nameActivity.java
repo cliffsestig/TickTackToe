@@ -25,7 +25,7 @@ public class nameActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!player1.getText().toString().equals("") && !player2.getText().toString().equals("")){
+                if ((!player1.getText().toString().equals("") && !player2.getText().toString().equals("")) && !player1.getText().toString().equals(player2.getText().toString()) ){
                     Intent myIntent = new Intent(nameActivity.this, playActivity.class);
                     myIntent.putExtra("PlayerX", player1.getText().toString());
                     myIntent.putExtra("PlayerO", player2.getText().toString());

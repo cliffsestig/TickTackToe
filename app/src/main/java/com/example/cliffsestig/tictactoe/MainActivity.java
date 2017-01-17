@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     {
         TextView tv = (TextView) findViewById(R.id.txt_title);
         TranslateAnimation cloud_moving = new TranslateAnimation(
-                Animation.ABSOLUTE, 200,
+                Animation.ABSOLUTE, 280,
                 Animation.ABSOLUTE, 10,
                 Animation.ABSOLUTE, 0,
                 Animation.ABSOLUTE, 0

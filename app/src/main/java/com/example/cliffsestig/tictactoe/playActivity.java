@@ -21,6 +21,7 @@ public TextView txt_time;
     private GameController gControl;
     private CountDownTimer count;
     private int turnCounter = 0;
+    private ArrayList<String> players;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +34,8 @@ public TextView txt_time;
 
         final GameController gControl = new GameController();
         gControl.createPlayers(playerX, playerO);
-        TextView txt_time = (TextView) findViewById(R.id.txt_time);
 
         txt_time = (TextView) findViewById(R.id.txt_time);
-        Level lv = new Level(getApplicationContext());
-        //timer();
-
-
 
         ArrayList imgView = new ArrayList();
         ImageView img  = (ImageView) findViewById(R.id.imageView);
@@ -82,35 +78,41 @@ public TextView txt_time;
                         startActivity(intent);
                     }
 
-                    //timer();
+                    timer(gControl);
                     imgV.setOnClickListener(null);
 
                 }
 
             });
+            timer(gControl);
         }
     }
-//    public void timer()
-//    {
-//        if (count != null) {
-//            count.cancel();
-//        }
-//        Level lv = new Level(getApplicationContext());
-//        int time = Integer.parseInt(lv.getTimer().replace(" sec", ""));
-//        time = time * 1000;
-//
-//       count = new CountDownTimer(time, 1000) {
-//            public void onTick(final long millisUntilFinished) {
-//                if ( millisUntilFinished >= 1) {
-//                    txt_time.setText(millisUntilFinished / 1000 + "");
-//                }
-//                else{txt_time.setText("0");}
-//            }
-//            public void onFinish() {
-//                txt_time.setText("0");
-//                Toast.makeText(playActivity.this,gControl.checkTurn() + " you lose", Toast.LENGTH_SHORT).show();
-//            }
-//        };
-//        count.start();
-//    }
+    public void timer(final GameController gcont)
+    {
+        if (count != null) {
+            count.cancel();
+        }
+        Level lv = new Level(getApplicationContext());
+        int time = Integer.parseInt(lv.getTimer().replace(" sec", ""));
+        time = (time + 1) * 1000;
+
+       count = new CountDownTimer(time, 1000) {
+            public void onTick(final long millisUntilFinished) {
+                    txt_time.setText(millisUntilFinished / 1000 + "");
+            }
+            public void onFinish() {
+                txt_time.setText("0");
+                String win;
+                if(gcont.checkTurn().equals("player1")){win = gcont.getPlayersName().get(1); }
+                else{win = gcont.getPlayersName().get(0);}
+
+                Intent intent = new Intent(playActivity.this, endGameActivity.class);
+                intent.putExtra("Result", win);
+                intent.putExtra("PlayerX", gcont.getPlayersName().get(0));
+                intent.putExtra("PlayerO", gcont.getPlayersName().get(1));
+                startActivity(intent);
+            }
+        };
+        count.start();
+    }
 }

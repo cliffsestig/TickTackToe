@@ -49,5 +49,25 @@ public class settingsActivity extends AppCompatActivity {
                         .setNegativeButton("NO", null).show();
             }
         });
+        Button btn_reset = (Button) findViewById(R.id.btn_reset);
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(settingsActivity.this)
+                        .setTitle("SAVE")
+                        .setMessage("Do you really want to reset the highscore?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                DbAdapter db = new DbAdapter(getApplicationContext());
+                                db.resettotalcore();
+                            }
+                        })
+                        .setNegativeButton("NO", null).show();
+
+             ;
+            }
+        });
     }
 }

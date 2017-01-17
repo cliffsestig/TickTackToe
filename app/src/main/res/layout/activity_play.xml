@@ -20,7 +20,8 @@
         android:id="@+id/txt_time"
         android:text="timer"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="36sp"
+        android:textStyle="normal|bold" />
 
     <LinearLayout
         android:orientation="horizontal"

@@ -21,7 +21,9 @@ public class endGameActivity extends AppCompatActivity {
         TextView txt = (TextView) findViewById(R.id.textView);
         final String playerX = intent.getStringExtra("PlayerX");
         final String playerO = intent.getStringExtra("PlayerO");
-        txt.setText(result);
+        DbAdapter db = new DbAdapter(getApplicationContext());
+        db.update_score(result,playerX,playerO);
+        txt.setText("WINNER: " + result +" !!");
 
         Button btn = (Button) findViewById(R.id.btn_play);
 
@@ -34,5 +36,16 @@ public class endGameActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        Button btn_home = (Button) findViewById(R.id.btn_home);
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(endGameActivity.this, MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
+
 }
