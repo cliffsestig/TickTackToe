@@ -18,7 +18,9 @@
         <activity android:name=".aboutActivity" />
         <activity android:name=".settingsActivity" />
         <activity android:name=".highscoreActivity" />
-        <activity android:name=".playActivity"></activity>
+        <activity android:name=".playActivity" />
+        <activity android:name=".endGameActivity" />
+        <activity android:name=".nameActivity"></activity>
     </application>
 
 </manifest>

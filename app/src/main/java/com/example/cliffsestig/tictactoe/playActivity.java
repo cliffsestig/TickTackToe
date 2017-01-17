@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,13 @@ public class playActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
+        Intent intent = getIntent();
+
+        String playerX = intent.getStringExtra("PlayerX");
+        String playerO = intent.getStringExtra("PlayerO");
+
         final GameController gControl = new GameController();
+        gControl.createPlayers(playerX, playerO);
         TextView txt_time = (TextView) findViewById(R.id.txt_time);
         Level lv = new Level(getApplicationContext());
         txt_time.setText(lv.getTimer());
@@ -45,14 +52,27 @@ public class playActivity extends AppCompatActivity {
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("Onclick", "View" + j);
                     String turn = gControl.checkTurn();
+                    boolean gs = gControl.checkGameState(j, turn);
                     if (turn == "player1") {
                         imgV.setImageResource(R.drawable.circle);
                     } else {
                         imgV.setImageResource(R.drawable.x);
                     }
+
+                    if (gs){
+                        ArrayList<String> players = gControl.getPlayersName();
+                        players.get(0);
+                        Log.d("Players",players.get(0));
+                        Intent intent = new Intent(playActivity.this, endGameActivity.class);
+                        intent.putExtra("Result", gControl.getResult());
+                        intent.putExtra("PlayerX", players.get(0));
+                        intent.putExtra("PlayerO", players.get(1));
+                        startActivity(intent);
+                    }
+
                     imgV.setOnClickListener(null);
+
                 }
 
             });

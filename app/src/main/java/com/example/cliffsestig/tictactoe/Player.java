@@ -23,9 +23,7 @@ public class Player {
         this.active = active;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
+    public String getPlayerName() { return playerName; }
 
     public char getPlayerId() {
         return playerId;
