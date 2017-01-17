@@ -20,6 +20,7 @@ public class playActivity extends AppCompatActivity {
 public TextView txt_time;
     private GameController gControl;
     private CountDownTimer count;
+    private int turnCounter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public TextView txt_time;
 
         txt_time = (TextView) findViewById(R.id.txt_time);
         Level lv = new Level(getApplicationContext());
-        timer();
+        //timer();
 
 
 
@@ -62,6 +63,7 @@ public TextView txt_time;
                 @Override
                 public void onClick(View view) {
                     String turn = gControl.checkTurn();
+                    turnCounter++;
                     boolean gs = gControl.checkGameState(j, turn);
                     if (turn == "player1") {
                         imgV.setImageResource(R.drawable.circle);
@@ -69,7 +71,7 @@ public TextView txt_time;
                         imgV.setImageResource(R.drawable.x);
                     }
 
-                    if (gs){
+                    if (gs || turnCounter == 9){
                         ArrayList<String> players = gControl.getPlayersName();
                         players.get(0);
                         Log.d("Players",players.get(0));
@@ -80,7 +82,7 @@ public TextView txt_time;
                         startActivity(intent);
                     }
 
-                    timer();
+                    //timer();
                     imgV.setOnClickListener(null);
 
                 }
@@ -88,27 +90,27 @@ public TextView txt_time;
             });
         }
     }
-    public void timer()
-    {
-        if (count != null) {
-            count.cancel();
-        }
-        Level lv = new Level(getApplicationContext());
-        int time = Integer.parseInt(lv.getTimer().replace(" sec", ""));
-        time = time * 1000;
-
-       count = new CountDownTimer(time, 1000) {
-            public void onTick(final long millisUntilFinished) {
-                if ( millisUntilFinished >= 1) {
-                    txt_time.setText(millisUntilFinished / 1000 + "");
-                }
-                else{txt_time.setText("0");}
-            }
-            public void onFinish() {
-                txt_time.setText("0");
-                Toast.makeText(playActivity.this,gControl.checkTurn() + " you lose", Toast.LENGTH_SHORT).show();
-            }
-        };
-        count.start();
-    }
+//    public void timer()
+//    {
+//        if (count != null) {
+//            count.cancel();
+//        }
+//        Level lv = new Level(getApplicationContext());
+//        int time = Integer.parseInt(lv.getTimer().replace(" sec", ""));
+//        time = time * 1000;
+//
+//       count = new CountDownTimer(time, 1000) {
+//            public void onTick(final long millisUntilFinished) {
+//                if ( millisUntilFinished >= 1) {
+//                    txt_time.setText(millisUntilFinished / 1000 + "");
+//                }
+//                else{txt_time.setText("0");}
+//            }
+//            public void onFinish() {
+//                txt_time.setText("0");
+//                Toast.makeText(playActivity.this,gControl.checkTurn() + " you lose", Toast.LENGTH_SHORT).show();
+//            }
+//        };
+//        count.start();
+//    }
 }
