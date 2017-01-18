@@ -54,7 +54,7 @@ public class settingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(settingsActivity.this)
-                        .setTitle("SAVE")
+                        .setTitle("reset")
                         .setMessage("Do you really want to reset the highscore?")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {

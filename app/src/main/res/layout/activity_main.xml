@@ -22,7 +22,7 @@
         android:textSize="50dp"
         android:textAlignment="center"
         android:gravity="right"
-        android:shadowColor="#EFFF08"  android:shadowDx="5.0" android:shadowDy="0.0" android:shadowRadius="30"
+        android:shadowColor="#EFFF08"  android:shadowDx="5.0" android:shadowDy="0.0" android:shadowRadius="24"
         android:elevation="1dp" />
 
     <Button

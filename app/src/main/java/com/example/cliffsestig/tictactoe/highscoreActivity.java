@@ -14,10 +14,12 @@ public class highscoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
+
         DbAdapter db = new DbAdapter(this);
-       ListView listView = (ListView) findViewById(R.id.lv_highscore);
-       scoreAdapter adapter = new scoreAdapter(this, db.getscore());
+        ListView listView = (ListView) findViewById(R.id.lv_highscore);
+        scoreAdapter adapter = new scoreAdapter(this, db.getscore());
         listView.setAdapter(adapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {

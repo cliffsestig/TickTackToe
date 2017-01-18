@@ -93,7 +93,7 @@ public TextView txt_time;
             count.cancel();
         }
         Level lv = new Level(getApplicationContext());
-        int time = Integer.parseInt(lv.getTimer().replace(" sec", ""));
+        int time = Integer.parseInt(lv.getTimer().replace(" sec",""));
         time = (time + 1) * 1000;
 
        count = new CountDownTimer(time, 1000) {

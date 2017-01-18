@@ -34,6 +34,20 @@ public class DbAdapter extends SQLiteAssetHelper {
         db.close();
     }
 
+
+
+    public  boolean CheckIsDataAlreadyInDBorNot(String fieldValue) {
+        SQLiteDatabase sqldb = this.getWritableDatabase();
+        String Query = "Select * from ticktactoe where player = '" + fieldValue + "'";
+        Cursor cursor = sqldb.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+
     public void update_score(String winner, String playerx, String playero){
         if(winner.equals(playerx)) {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -59,9 +73,5 @@ public class DbAdapter extends SQLiteAssetHelper {
             db.execSQL(query2);
             db.close();
         }
-
-
     }
-
-
 }

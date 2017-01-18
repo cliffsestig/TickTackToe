@@ -20,12 +20,7 @@ public class Level  {
          preferences = PreferenceManager.getDefaultSharedPreferences(con);
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-    public int getLevel() {
-        return level;
-    }
+
 
     public void setTimer(String timer) {
         SharedPreferences.Editor editor = preferences.edit();
@@ -38,6 +33,10 @@ public class Level  {
         if(!name.equalsIgnoreCase(""))
         {
             timer = name;
+        }
+        else
+        {
+          timer = "20 sec";
         }
 
         return timer;
