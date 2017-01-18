@@ -18,7 +18,7 @@ import static android.R.id.input;
 
 public class playActivity extends AppCompatActivity {
 public TextView txt_time;
-    private GameController gControl;
+    private final GameController gControl = new GameController();
     private CountDownTimer count;
     private int turnCounter = 0;
     private ArrayList<String> players;
@@ -32,7 +32,7 @@ public TextView txt_time;
         String playerX = intent.getStringExtra("PlayerX");
         String playerO = intent.getStringExtra("PlayerO");
 
-        final GameController gControl = new GameController();
+
         gControl.createPlayers(playerX, playerO);
 
         txt_time = (TextView) findViewById(R.id.txt_time);
@@ -101,6 +101,7 @@ public TextView txt_time;
                     txt_time.setText(millisUntilFinished / 1000 + "");
             }
             public void onFinish() {
+
                 txt_time.setText("0");
                 String win;
                 if(gcont.checkTurn().equals("player1")){win = gcont.getPlayersName().get(1); }
@@ -114,5 +115,9 @@ public TextView txt_time;
             }
         };
         count.start();
+        if (gControl.getWinner() || turnCounter == 9){
+            count.cancel();
+            Log.d("Cancel", "aub");
+        }
     }
 }
