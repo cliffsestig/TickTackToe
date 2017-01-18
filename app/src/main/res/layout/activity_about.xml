@@ -22,7 +22,7 @@
         android:textSize="36sp" />
 
     <TextView
-        android:text="12345455"
+        android:text="2114975"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/about_studentnr_cliff"

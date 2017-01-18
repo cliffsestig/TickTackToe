@@ -78,4 +78,8 @@ public class GameController {
 
         return players;
     }
+
+    public boolean getWinner(){
+        return game.isWinner();
+    }
 }
