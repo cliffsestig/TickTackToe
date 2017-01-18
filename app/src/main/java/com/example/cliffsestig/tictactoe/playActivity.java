@@ -111,6 +111,7 @@ public TextView txt_time;
                 intent.putExtra("Result", win);
                 intent.putExtra("PlayerX", gcont.getPlayersName().get(0));
                 intent.putExtra("PlayerO", gcont.getPlayersName().get(1));
+                intent.putExtra("PlayerO", gcont.getPlayersName().get(1));
                 startActivity(intent);
             }
         };
